@@ -1,0 +1,36 @@
+﻿<!--
+	ColorDetector
+	By: Anthony McKeever (GitHub: Snip3rM00n - http://github.com/snip3rm00n)
+
+	App: Designed to work with RGB Sensor from Adafruit and provide color codes and values (RGB, CMYK, HSL, HSV, XYZ) about a color.
+	Based on: Microsoft IoT Lesson 205 - "What Color Is It"
+	API Used: The Color API by Josh Beckman (http://thecolorapi.com).
+
+	File: MainPage.xaml
+	Coded in: C# (Microsoft .Net 5.0 Framework)
+	Namespace: ColorDetector
+	Purpose: Contains the design of the UI.  Its built mainly for functionality.
+-->
+	
+<Page
+    x:Class="ColorDetector.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ColorDetector"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+		<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="1060" Margin="10,10,0,0" Width="400">
+			<ComboBox x:Name="ColorHistory" FontSize="26.667" Margin="10,10,0,10" Width="380" HorizontalAlignment="Left" SelectionChanged="ColorHistory_SelectionChanged"/>
+			<Rectangle x:Name="ColorPreview" Height="380" HorizontalAlignment="Left" Width="380" Fill="#FF7C7C7C" Margin="10,10,10,10"/>
+
+			<TextBox x:Name="redInt" Foreground="Red" Text="0" Margin="10" TextAlignment="Center" FontSize="26.667"/>
+			<TextBox x:Name="greenInt" Foreground="#FF02A402" Text="71" Margin="10" TextAlignment="Center" FontSize="26.667"/>
+			<TextBox x:Name="blueInt" Foreground="#FF398AFF" Text="171" Margin="10" TextAlignment="Center" FontSize="26.667"/>
+			<Button x:Name="hitApi" Content="Get Color" FontSize="26.667" Margin="10,10,10,10" ClickMode="Press" Click="hitApi_Click" Width="380"/>
+		</StackPanel>
+		<TextBlock x:Name="colorDetail" Text="Waiting for color..." Margin="415,10,10,10" FontSize="26.667"/>
+	</Grid>
+</Page>
